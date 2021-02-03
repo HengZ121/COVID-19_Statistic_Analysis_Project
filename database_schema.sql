@@ -19,7 +19,7 @@ CREATE TABLE CityDailyInfo(
 	updated_date date,
 	testing_facilities_type varchar(20),
 	availability_of_facilities int,
-	total_cases int,
+	total_cases int NOT NULL,
 	weather varchar(20),
 	gathering_area_type varchar(20),
 	mobility_info varchar(20),
