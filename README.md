@@ -1,3 +1,3 @@
-# COVID-19_TRACKING
+# COVID-19 Statistic Analysis Project
 
 Database: PostgreSQL | Version Control: Github & Git
