@@ -1,0 +1,36 @@
+CREATE TABLE Covid_Fact_Table (
+	onset_date_key date,
+	reported_date_key date,
+	test_date_key date,
+	specimen_date_key date,
+	case_number int,
+	phu_location_key int,
+	mobility_key int,
+	special_measures_key int,
+	weather_key int,
+	resolved Boolean,
+	unresolved Boolean,
+	Fatal Boolean,
+	PRIMARY KEY (onset_date_key, reported_date_key, test_date_key,
+		specimen_date_key, case_number, phu_location_key, mobility_key,
+		special_measures_key, weather_key)
+)
+
+CREATE TABLE PositiveCase(
+	case_number int PRIMARY KEY,
+	age int NOT NULL,
+	gender varchar(1) NOT NULL,
+	source_of_infection varchar(20)
+)
+
+CREATE TABLE PHU_Location(
+	phu_location_key int PRIMARY KEY,
+	phu_name varchar(20),
+	phu_address varchar(20),
+	city varchar(20),
+	postal_code varchar(20),
+	province varchar(2),
+	URL varchar(50),
+	latitude int,
+	longitude int
+)
