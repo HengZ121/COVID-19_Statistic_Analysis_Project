@@ -87,7 +87,8 @@ CREATE TABLE SpecimenDate(
 );
 
 CREATE TABLE  Mobility(
-	metro_area varchar(20),
+	mobility_key int PRIMARY KEY,
+	metro_area varchar(80),
 	province varchar(2),
 	grocery_pharmacy int,
 	parks int,
@@ -99,7 +100,7 @@ CREATE TABLE  Mobility(
 
 CREATE TABLE SpecialMeasures(
 	special_measures_key int PRIMARY KEY,
-	title varchar(20),
+	title varchar(80),
 	description varchar(80),
 	keyward1 varchar(20),
 	keyward2 varchar(20),
