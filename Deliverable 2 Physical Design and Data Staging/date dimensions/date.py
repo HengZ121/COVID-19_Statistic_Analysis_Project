@@ -104,11 +104,11 @@ print("Information Loaded")
 
 #establishing the connection to database
 conn = psycopg2.connect(
-   database="COVID_TRACKING",
-   user='heng',
-   password='991201',
-   host='192.168.1.8',
-   port= '5432'
+   database="CSI4142",
+   user='CSI4142',
+   password='uOttawa1234!',
+   host='lileyao1998.synology.me',
+   port= '15432'
 )  
 cursor = conn.cursor()
 
