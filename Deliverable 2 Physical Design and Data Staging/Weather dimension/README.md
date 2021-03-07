@@ -2,10 +2,13 @@
 
 The weather station we used are:
 
-Toronto City ONTARIO
-TORONTO BUTTONVILLE A ONTARIO
-TORONTO LESTER B. PEARSON INT'L A ONTARIO
-Ottawa CDA RCS
+Toronto City ONTARIO                            in Toronto downtown
+TORONTO BUTTONVILLE A ONTARIO                   in York Region
+TORONTO LESTER B. PEARSON INT'L A ONTARIO       in Peel Region
+Ottawa CDA RCS                                  in Ottawa
+____________________________________
+BURLINGTON PIERS ONTARIO                        in Halton Region
+OSHAWA ONTARIO                                  in Durham Region
 
 Give each station a code:
 Toronto City ONTARIO----1
