@@ -2,27 +2,6 @@
 
 The weather station we used are:
 
-<<<<<<< Updated upstream
-Toronto City ONTARIO
-TORONTO BUTTONVILLE A ONTARIO
-TORONTO LESTER B. PEARSON INT'L A ONTARIO
-Ottawa CDA RCS
-=======
-Toronto City ONTARIO                            in Toronto downtown
-TORONTO LESTER B. PEARSON INT'L A ONTARIO       in Peel Region
-TORONTO BUTTONVILLE A ONTARIO                   in York Region
-BURLINGTON PIERS ONTARIO                        in Halton Region
-OSHAWA ONTARIO                                  in Durham Region
-Ottawa CDA RCS                                  in Ottawa
->>>>>>> Stashed changes
-
-Give each station a code:
-Toronto City ONTARIO----1
-TORONTO LESTER B. PEARSON INT'L A ONTARIO----2
-TORONTO BUTTONVILLE A ONTARIO----3
-BURLINGTON PIERS ONTARIO----4                        
-OSHAWA ONTARIO----5
-Ottawa CDA RCS----6
 
 2. The value of weather_key is concatenation of station code and date. For example, the weather_key for ottawa on 2020/01/17 is 620200117.
 This is done in Excel via 'concatenate(COL1, COL2)'
