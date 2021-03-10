@@ -132,7 +132,7 @@ for elem in content:
 
 
 print("Datastaging Completed")
-
+cursor.close()
 
 # Commit changes in the database
 conn.commit()
