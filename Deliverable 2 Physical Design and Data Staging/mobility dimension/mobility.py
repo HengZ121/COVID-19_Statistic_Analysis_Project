@@ -3,7 +3,7 @@ import psycopg2
 
 ### 
 targeted_regions = ["Toronto Division", "Regional Municipality of Durham", "Regional Municipality of Halton", "Regional Municipality of Peel", "Regional Municipality of York", "Ottawa Division"]
-region_code = ["001","002","003","004","005","006"]
+region_code = ["1","2","3","4","5","6"]
 insert_query = "INSERT INTO Mobility (mobility_key, metro_area, province, grocery_pharmacy, parks, transit_stations, retail_recreation, residential, workplaces) VALUES "
 province_abbrev = {
   'Alberta': 'AB',
