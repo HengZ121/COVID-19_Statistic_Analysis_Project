@@ -3,7 +3,7 @@ import psycopg2
 
 ### 
 targeted_regions = ["Toronto Division", "Regional Municipality of Durham", "Regional Municipality of Halton", "Regional Municipality of Peel", "Regional Municipality of York", "Ottawa Division"]
-region_code = ["001","002","003","004","005","006"]
+region_code = ["1","2","3","4","5","6"]
 insert_query = "INSERT INTO Mobility (mobility_key, metro_area, province, grocery_pharmacy, parks, transit_stations, retail_recreation, residential, workplaces) VALUES "
 province_abbrev = {
   'Alberta': 'AB',
@@ -53,11 +53,11 @@ class Instance:
 
 #establishing the connection to database
 conn = psycopg2.connect(
-   database="COVID_TRACKING",
-   user='heng',
-   password='991201',
-   host='192.168.1.8',
-   port= '5432'
+   database="CSI4142",
+   user='CSI4142',
+   password='uOttawa1234!',
+   host='lileyao1998.synology.me',
+   port= '15432'
 )  
 cursor = conn.cursor()
 

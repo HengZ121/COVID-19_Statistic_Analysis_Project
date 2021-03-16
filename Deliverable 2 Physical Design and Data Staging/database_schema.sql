@@ -39,7 +39,8 @@ CREATE TABLE Weather(
 	weather_key int PRIMARY KEY,
 	daily_high_temperature int,
 	daily_low_temperature int,
-	weather varchar(10)
+	snow_on_ground int,
+	total_precipitation int
 );
 
 CREATE TABLE OnsetDate(
