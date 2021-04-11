@@ -4,6 +4,9 @@ After applying the 3 different algorithms, I am sure that
 				1. different age groups have different patterns of lives during covid-19 pandemic and 
 				2. they have different opinion and reactions toward covid-19.
 
+In order to run programs properly, users need to install scikit module for python: https://scikit-learn.org/stable/install.html
+
+
 I am also confident there are more information can be revealed by applying different algorithms in this project :D
 
 The output of 3 datamining algorithm on my computer:
