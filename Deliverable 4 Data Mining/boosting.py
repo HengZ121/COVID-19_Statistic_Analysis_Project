@@ -1,6 +1,6 @@
 import psycopg2
 import time
-from sklearn import tree
+from sklearn.ensemble import GradientBoostingClassifier
 
 #establishing the connection to database
 conn = psycopg2.connect(
@@ -77,7 +77,7 @@ for record in cursor:
 	counter = counter + 1
 
 starttime = time.time()
-clf = tree.DecisionTreeClassifier()
+clf = GradientBoostingClassifier(n_estimators=100, learning_rate=1.0, max_depth=1, random_state=0)
 clf = clf.fit(training, label_of_training)
 endtime = time.time()
 TP = 0 ### correctly predicted cases whose age are below 40
