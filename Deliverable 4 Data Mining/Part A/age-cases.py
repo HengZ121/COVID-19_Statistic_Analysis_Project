@@ -16,17 +16,18 @@ cursor = conn.cursor()
 ### New cases and mobility status of the day.
 cursor.execute('''
 	SELECT p.age, count(f.case_number)
-	FROM postivecase p, covid_fact_table f
-	WHERE f.case_number = m.case_number
+	FROM positivecase p, covid_fact_table f
+	WHERE f.case_number = p.case_number
 	GROUP BY (p.age)
 ''')
 
-x = [] #### x-axis (# of cases)
-y = [] #### y-axis (age)
+y = [] #### y-axis (# of cases)
+x = [] #### x-axis (age)
 
 for record in cursor:
-	x.append(record[1])
-	y.append(record[0])
+	y.append(record[1])
+	x.append(record[0])
 
-plt.plot(bins, y, 'r--', linewidth=1)
+plt.plot(x, y, 'r--', linewidth=1)
+plt.title("# of cases among different age group")
 plt.show()
