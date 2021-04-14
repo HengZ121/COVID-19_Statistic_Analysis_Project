@@ -1,5 +1,6 @@
 import psycopg2
 import time
+import random
 from sklearn.ensemble import GradientBoostingClassifier
 
 #establishing the connection to database
@@ -17,7 +18,7 @@ cursor.execute(
 '''SELECT m.grocery_pharmacy, m.parks, m.transit_stations, m.retail_recreation, m.residential, m.workplaces,
 		CASE s.keyword1
 			WHEN 'Protect' THEN 25
-			WHEN 'Restrict' THEN 5
+			WHEN 'Restrict' THEN 50
 			WHEN 'Control' THEN 75
 			WHEN 'Stay-at-home' THEN 100
 			ELSE 0
@@ -63,7 +64,7 @@ for record in cursor:
 		age_of60 = age_of60 + 1
 
 	if (counter % 3 == 0):
-		if record[10] >= 60:
+		if record[10] >= 60 and random.randint(0,1) == 0:
 			training.append(list(record[0:10]))
 			label_of_training.append(record[10])
 		else:
@@ -75,6 +76,7 @@ for record in cursor:
 			training.append(list(record[0:10]))
 			label_of_training.append(record[10])
 	counter = counter + 1
+
 
 starttime = time.time()
 clf = GradientBoostingClassifier(n_estimators=100, learning_rate=1.0, max_depth=1, random_state=0)

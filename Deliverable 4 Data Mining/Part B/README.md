@@ -11,20 +11,20 @@ I am also confident there are more information can be revealed by applying diffe
 
 The output of 3 datamining algorithm on my computer:
 
-C:\Users\Heng\Desktop\COVID-19_Statistic_Analysis_Project\Deliverable 4 Data Mining>python decision_tree.py
-Accuracy Rate:  0.6915600038494851
-Precision Rate:  0.8203834817223252
-Recall Rate:  0.7962367652697083
-Model Construction Time:  0.2124323844909668  sec
+C:\Users\Heng\Desktop\COVID-19_Statistic_Analysis_Project\Deliverable 4 Data Mining\Part B>python decision_tree.py
+Accuracy Rate:  0.6699201036493198
+Precision Rate:  0.736649467503749
+Recall Rate:  0.8547497566874097
+Model Construction Time:  0.20943999290466309  sec
 
-C:\Users\Heng\Desktop\COVID-19_Statistic_Analysis_Project\Deliverable 4 Data Mining>python random_forest.py
-Accuracy Rate:  0.8120729477432393
-Precision Rate:  0.8158863119159444
-Recall Rate:  0.993924558350783
-Model Construction Time:  1.888056993484497  sec
+C:\Users\Heng\Desktop\COVID-19_Statistic_Analysis_Project\Deliverable 4 Data Mining\Part B>python random_forest.py
+Accuracy Rate:  0.7272805544793146
+Precision Rate:  0.7297829521109692
+Recall Rate:  0.9946028843601616
+Model Construction Time:  1.747328758239746  sec
 
-C:\Users\Heng\Desktop\COVID-19_Statistic_Analysis_Project\Deliverable 4 Data Mining>python boosting.py
-Accuracy Rate:  0.7837311134635743
-Precision Rate:  0.8173620663304295
-Recall Rate:  0.9463532603887103
-Model Construction Time:  46.21404552459717  sec
+C:\Users\Heng\Desktop\COVID-19_Statistic_Analysis_Project\Deliverable 4 Data Mining\Part B>python boosting.py
+Accuracy Rate:  0.7176584734799483
+Precision Rate:  0.7318937469358648
+Recall Rate:  0.9686200489574425
+Model Construction Time:  43.0341534614563  sec
