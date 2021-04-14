@@ -1,7 +1,10 @@
 import psycopg2
 import time
-import random
-from sklearn import tree
+from sklearn.ensemble import GradientBoostingClassifier
+import matplotlib.pyplot as plt
+from sklearn import svm
+import numpy as np
+from scipy import stats
 
 #establishing the connection to database
 conn = psycopg2.connect(
@@ -18,7 +21,7 @@ cursor.execute(
 '''SELECT m.grocery_pharmacy, m.parks, m.transit_stations, m.retail_recreation, m.residential, m.workplaces,
 		CASE s.keyword1
 			WHEN 'Protect' THEN 25
-			WHEN 'Restrict' THEN 50
+			WHEN 'Restrict' THEN 5
 			WHEN 'Control' THEN 75
 			WHEN 'Stay-at-home' THEN 100
 			ELSE 0
@@ -34,6 +37,12 @@ cursor.execute(
 	WHERE f.mobility_key = m.mobility_key AND
 		f.special_measures_key = s.special_measures_key AND
 		f.weather_key = w.weather_key AND f.case_number = c.case_number''')
+
+# algo & variables to define outliers
+algo =  ("One-Class SVM", svm.OneClassSVM(nu=0.25, kernel="rbf",
+                                      gamma=0.1))
+ground_truth = np.ones(200, dtype=int)
+ground_truth[-50:] = 0
 
 ### Divide instances into training and testing
 training = []
@@ -64,7 +73,7 @@ for record in cursor:
 		age_of60 = age_of60 + 1
 
 	if (counter % 3 == 0):
-		if record[10] >= 60 and random.randint(0,1) == 0:
+		if record[10] >= 60:
 			training.append(list(record[0:10]))
 			label_of_training.append(record[10])
 		else:
@@ -78,13 +87,37 @@ for record in cursor:
 	counter = counter + 1
 
 starttime = time.time()
-clf = tree.DecisionTreeClassifier()
+clf = GradientBoostingClassifier(n_estimators=100, learning_rate=1.0, max_depth=1, random_state=0)
 clf = clf.fit(training, label_of_training)
 endtime = time.time()
+
+y_pred = clf.decision_function(training).ravel()
+threshold = stats.scoreatpercentile(y_pred,
+                                    100 * 0.25)
+y_pred = y_pred > threshold
+n_errors = (y_pred != ground_truth).sum()
+# plot the levels lines and the points
+Z = clf.decision_function(np.c_[xx.ravel(), yy.ravel()])
+Z = Z.reshape(xx.shape)
+subplot = plt.subplot(1, 2, i + 1)
+subplot.set_title("Outlier detection")
+subplot.contourf(xx, yy, Z, levels=np.linspace(Z.min(), threshold, 7),
+                 cmap=plt.cm.Blues_r)
+a = subplot.contour(xx, yy, Z, levels=[threshold],
+                    linewidths=2, colors='red')
+subplot.contourf(xx, yy, Z, levels=[threshold, Z.max()],
+                 colors='orange')
+b = subplot.scatter(X[:-n_outliers, 0], X[:-n_outliers, 1], c='white')
+c = subplot.scatter(X[-n_outliers:, 0], X[-n_outliers:, 1], c='black')
+
+plt.show()
 TP = 0 ### correctly predicted cases whose age are below 40
 FN = 0 ### cases mis-predicted age > 40
 FP = 0 ### cases mis-predicted age < 40
 TN = 0 ### correctly predicted cases whose age > 40
+
+
+
 
 count = 0
 for elem in clf.predict(testing):
